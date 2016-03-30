@@ -8,11 +8,15 @@ class Text extends Model
 {
   protected $fillable = [
     'text',
-    'user_id'
+    'folder_id'
   ];
 
-  public function user()
+  // public function user()
+  // {
+  //   return $this->belongsTo('App\User');
+  // }
+  public function folder()
   {
-    return $this->belongsTo('App\User');
+    return $this->belongsTo('App\textFolder');
   }
 }

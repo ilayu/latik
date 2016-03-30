@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinksTable extends Migration
+class CreateTextFoldersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,16 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('text_folders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('folder_id')->unsigned();
-            $table->string('link');
-            $table->string('name')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->string('name');
+            $table->string('parent')->nullable();
             $table->timestamps();
 
-            $table->foreign('folder_id')
+            $table->foreign('user_id')
                         ->references('id')
-                        ->on('link_folders')
-                        ->onDelete('cascade');
+                        ->on('users');
         });
     }
 
@@ -33,6 +32,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('links');
+        Schema::drop('text_folders');
     }
 }

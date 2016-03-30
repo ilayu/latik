@@ -35,6 +35,8 @@
 
 @section('script')
   <script>
-        var editor = CKEDITOR.replace( 'text' );
+        var editor = CKEDITOR.replace( 'text',{
+                 filebrowserBrowseUrl : '/elfinder/ckeditor'
+        } );
   </script>
 @stop
