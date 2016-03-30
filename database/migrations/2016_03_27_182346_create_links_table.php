@@ -14,14 +14,18 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('folder_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('link');
             $table->string('name')->nullable();
+
+            $table->string('folder')->nullable();
+            $table->string('prntfldr')->nullable();
+
             $table->timestamps();
 
-            $table->foreign('folder_id')
+            $table->foreign('user_id')
                         ->references('id')
-                        ->on('link_folders')
+                        ->on('users')
                         ->onDelete('cascade');
         });
     }

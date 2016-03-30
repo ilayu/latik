@@ -24,20 +24,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // public function links()
-    // {
-    //     return $this->hasMany('App\Link');
-    // }
-    // public function texts()
-    // {
-    //     return $this->hasMany('App\Text');
-    // }
-    public function textFolders()
+    public function links()
     {
-        return $this->hasMany('App\textFolder');
+        return $this->hasMany('App\Link');
     }
-    public function linkFolders()
+    public function texts()
     {
-        return $this->hasMany('App\linkFolder');
+        return $this->hasMany('App\Text');
     }
 }

@@ -14,13 +14,17 @@ class CreateTextsTable extends Migration
     {
         Schema::create('texts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('folder_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->text('text');
+
+            $table->string('folder')->nullable();
+            $table->string('prntfldr')->nullable();
+
             $table->timestamps();
 
-            $table->foreign('folder_id')
+            $table->foreign('user_id')
                         ->references('id')
-                        ->on('text_folders')
+                        ->on('users')
                         ->onDelete('cascade');
         });
     }

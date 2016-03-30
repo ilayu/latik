@@ -9,15 +9,11 @@ class Link extends Model
   protected $fillable = [
     'link',
     'name',
-    'folder_id'
+    'user_id'
   ];
 
-  // public function user()
-  // {
-  //   return $this->belongsTo('App\User');
-  // }
-  public function folder()
+  public function user()
   {
-    return $this->belongsTo('App\linkFolder');
+    return $this->belongsTo('App\User');
   }
 }
